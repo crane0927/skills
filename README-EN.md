@@ -1,6 +1,6 @@
 # My Skills
 
-This repository contains personal Codex skills.
+This repository contains personal general-purpose skills.
 
 ## Skills
 

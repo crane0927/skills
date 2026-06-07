@@ -1,6 +1,6 @@
 # 我的 Skills
 
-这个仓库用于维护个人 Codex skills。
+这个仓库用于维护个人通用 skills。
 
 ## Skills 列表
 
