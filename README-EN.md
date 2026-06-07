@@ -1,4 +1,4 @@
-# My Skills
+# Skills
 
 This repository contains personal general-purpose skills.
 

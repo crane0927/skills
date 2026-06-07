@@ -1,4 +1,4 @@
-# 我的 Skills
+# Skills
 
 这个仓库用于维护个人通用 skills。
 
