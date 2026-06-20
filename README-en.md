@@ -5,7 +5,7 @@
 A personal collection of Agent Skills. This repository keeps reusable workflow instructions that help Codex, Claude Code, and other skill-aware agents behave more consistently and verify their work in task-specific situations.
 
 > [!NOTE]
-> This repository is not a runtime framework or application. Each directory is an independent skill, and its main entry point is the `SKILL.md` file inside that directory.
+> This repository only keeps local custom skills, or local versions that intentionally differ from upstream. Skills that can be installed directly from skills.sh and are unchanged are kept as download links only.
 
 ## At a Glance
 
@@ -15,16 +15,27 @@ A personal collection of Agent Skills. This repository keeps reusable workflow i
 - **Plan grilling**: Pressure-test plans, designs, and domain language through focused questions.
 - **Coding guidance**: Keep implementation, review, and refactoring simple, scoped, and verifiable.
 
-## Available Skills
+## Maintained Skills
 
-| Skill | Use it when |
+| Skill | Source | Use it when / local changes |
 | --- | --- |
-| [`create-readme`](create-readme/SKILL.md) | You need to create or rewrite `README.md` and `README-en.md` for a project. |
-| [`find-skills`](find-skills/SKILL.md) | A user wants to find a capability, tool, template, or workflow that may exist as an installable skill. |
-| [`git-commit`](git-commit/SKILL.md) | You want to inspect the current diff, generate a Conventional Commit, and run `git commit`. |
-| [`grill-me`](grill-me/SKILL.md) | You want to stress-test a plan or design one question at a time until decisions are clear. |
-| [`grill-with-docs`](grill-with-docs/SKILL.md) | You want to challenge a plan against `CONTEXT.md` and ADR rules, then update resolved terminology or decisions. |
-| [`karpathy-guidelines`](karpathy-guidelines/SKILL.md) | You are writing, reviewing, or refactoring code and want guardrails against overengineering and unverified claims. |
+| [`create-readme`](create-readme/SKILL.md) | Local custom | Create or rewrite `README.md` and `README-en.md` for a project. |
+| [`git-commit`](git-commit/SKILL.md) | [skills.sh](https://www.skills.sh/github/awesome-copilot/git-commit) | Based on `github/awesome-copilot`, with commit descriptions changed to Simplified Chinese and Chinese commit-message guidance added. |
+| [`grill-me`](grill-me/SKILL.md) | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-me) | Based on `mattpocock/skills`, expanded from command delegation into an inline interview workflow, including codebase lookup when the code can answer a question. |
+| [`grill-with-docs`](grill-with-docs/SKILL.md) | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-with-docs) | Based on `mattpocock/skills`, expanded with domain-term interrogation, `CONTEXT.md` updates, ADR trigger rules, and local templates. |
+| [`karpathy-guidelines`](karpathy-guidelines/SKILL.md) | Local custom | Keep implementation, review, and refactoring simple, scoped, and verifiable. |
+
+## Install Upstream
+
+These skills are available from skills.sh and the local copy matches upstream, so this repository does not keep their directories.
+
+| Skill | Download | Install command |
+| --- | --- | --- |
+| `agent-reach` | [skills.sh](https://www.skills.sh/panniantong/agent-reach/agent-reach) | `npx skills add https://github.com/panniantong/agent-reach --skill agent-reach` |
+| `find-skills` | [skills.sh](https://www.skills.sh/vercel-labs/skills/find-skills) | `npx skills add https://github.com/vercel-labs/skills --skill find-skills` |
+| `frontend-design` | [skills.sh](https://www.skills.sh/anthropics/skills/frontend-design) | `npx skills add https://github.com/anthropics/skills --skill frontend-design` |
+| `obsidian-markdown` | [skills.sh](https://www.skills.sh/kepano/obsidian-skills/obsidian-markdown) | `npx skills add https://github.com/kepano/obsidian-skills --skill obsidian-markdown` |
+| `postgresql-optimization` | [skills.sh](https://www.skills.sh/github/awesome-copilot/postgresql-optimization) | `npx skills add https://github.com/github/awesome-copilot --skill postgresql-optimization` |
 
 ## Getting Started
 
@@ -35,12 +46,11 @@ git clone https://github.com/crane0927/skills.git
 cd skills
 ```
 
-Expose the skills you want to your agent. For example, with `~/.agents/skills`:
+Expose the skills maintained in this repository to your agent. For example, with `~/.agents/skills`:
 
 ```bash
 mkdir -p ~/.agents/skills
 ln -s "$PWD/create-readme" ~/.agents/skills/create-readme
-ln -s "$PWD/find-skills" ~/.agents/skills/find-skills
 ln -s "$PWD/git-commit" ~/.agents/skills/git-commit
 ln -s "$PWD/grill-me" ~/.agents/skills/grill-me
 ln -s "$PWD/grill-with-docs" ~/.agents/skills/grill-with-docs
@@ -48,6 +58,8 @@ ln -s "$PWD/karpathy-guidelines" ~/.agents/skills/karpathy-guidelines
 ```
 
 If your tool uses a different skill root, replace the target directory with that path. You can also copy directories with `cp -R` instead of creating symlinks.
+
+To install unchanged upstream skills, use the `npx skills add` commands in “Install Upstream”.
 
 ## Usage
 
@@ -70,9 +82,9 @@ Most agents inspect each `SKILL.md` frontmatter and body to decide when to activ
 ├── README-en.md
 ├── create-readme/
 │   └── SKILL.md
-├── find-skills/
+├── git-commit/
 │   └── SKILL.md
-└── <skill-name>/
+└── <local-or-modified-skill>/
     └── SKILL.md
 ```
 
@@ -93,6 +105,8 @@ More complex skills can add support files as needed:
 - Use `description` to define concrete trigger scenarios, not just general capability.
 - Put required process, boundaries, and verification steps in `SKILL.md`.
 - Add scripts, templates, or assets only when they reduce repetition or prevent mistakes.
+- If a skill exactly matches its skills.sh upstream, keep only the download link instead of a local directory.
+- If an upstream skill is modified locally, document the upstream link and the change summary in “Maintained Skills”.
 - After editing a skill, check Markdown links, frontmatter, and example commands for accuracy.
 
 ## Verification

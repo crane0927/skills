@@ -5,7 +5,7 @@
 个人常用 Agent Skills 集合。这里保存一组可复用的工作流说明，用来让 Codex、Claude Code 或其他支持 Skills 的智能体在特定任务中采用更稳定、更可验证的做法。
 
 > [!NOTE]
-> 这个仓库本身不包含运行时框架或业务应用。每个目录都是一个独立 skill，核心入口是该目录下的 `SKILL.md`。
+> 这个仓库只保留本地自定义 skill，或对上游 skill 做过修改的版本。能从 skills.sh 直接安装且未修改的 skill 只在文档中保留下载链接。
 
 ## 内容速览
 
@@ -15,16 +15,27 @@
 - **方案拷问**：通过连续追问压力测试计划、设计和领域术语。
 - **编码准则**：约束实现、评审和重构过程，减少过度设计和未验证结论。
 
-## 可用 Skills
+## 本仓库维护的 Skills
 
-| Skill | 适用场景 |
+| Skill | 来源 | 适用场景 / 修改说明 |
 | --- | --- |
-| [`create-readme`](create-readme/SKILL.md) | 为项目创建或重构 `README.md` 与 `README-en.md`。 |
-| [`find-skills`](find-skills/SKILL.md) | 当用户想找某类能力、工具或工作流时，搜索并评估可安装的 skills。 |
-| [`git-commit`](git-commit/SKILL.md) | 分析当前 diff，按 Conventional Commits 生成并执行提交。 |
-| [`grill-me`](grill-me/SKILL.md) | 对计划或设计进行一问一答式压力测试，直到关键决策清晰。 |
-| [`grill-with-docs`](grill-with-docs/SKILL.md) | 结合 `CONTEXT.md` 和 ADR 规则拷问方案，并在术语或决策明确后更新文档。 |
-| [`karpathy-guidelines`](karpathy-guidelines/SKILL.md) | 写代码、评审或重构时提醒保持简单、聚焦、可验证。 |
+| [`create-readme`](create-readme/SKILL.md) | 本地自定义 | 为项目创建或重构 `README.md` 与 `README-en.md`。 |
+| [`git-commit`](git-commit/SKILL.md) | [skills.sh](https://www.skills.sh/github/awesome-copilot/git-commit) | 基于上游 `github/awesome-copilot`，将提交描述要求改为简体中文，并补充中文提交消息约定。 |
+| [`grill-me`](grill-me/SKILL.md) | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-me) | 基于上游 `mattpocock/skills`，从命令委托改为内联追问流程，并补充“可从代码库回答的问题先查代码”。 |
+| [`grill-with-docs`](grill-with-docs/SKILL.md) | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-with-docs) | 基于上游 `mattpocock/skills`，扩展为领域术语拷问、`CONTEXT.md` 更新和 ADR 触发规则，并保留本地模板文件。 |
+| [`karpathy-guidelines`](karpathy-guidelines/SKILL.md) | 本地自定义 | 写代码、评审或重构时提醒保持简单、聚焦、可验证。 |
+
+## 上游直接安装
+
+这些 skill 已确认可从 skills.sh 获取，且本地副本与上游一致；仓库不再保存对应目录。
+
+| Skill | 下载链接 | 安装命令 |
+| --- | --- | --- |
+| `agent-reach` | [skills.sh](https://www.skills.sh/panniantong/agent-reach/agent-reach) | `npx skills add https://github.com/panniantong/agent-reach --skill agent-reach` |
+| `find-skills` | [skills.sh](https://www.skills.sh/vercel-labs/skills/find-skills) | `npx skills add https://github.com/vercel-labs/skills --skill find-skills` |
+| `frontend-design` | [skills.sh](https://www.skills.sh/anthropics/skills/frontend-design) | `npx skills add https://github.com/anthropics/skills --skill frontend-design` |
+| `obsidian-markdown` | [skills.sh](https://www.skills.sh/kepano/obsidian-skills/obsidian-markdown) | `npx skills add https://github.com/kepano/obsidian-skills --skill obsidian-markdown` |
+| `postgresql-optimization` | [skills.sh](https://www.skills.sh/github/awesome-copilot/postgresql-optimization) | `npx skills add https://github.com/github/awesome-copilot --skill postgresql-optimization` |
 
 ## 快速开始
 
@@ -35,12 +46,11 @@ git clone https://github.com/crane0927/skills.git
 cd skills
 ```
 
-把需要的 skill 暴露给你的智能体。以 `~/.agents/skills` 为例：
+把本仓库维护的 skill 暴露给你的智能体。以 `~/.agents/skills` 为例：
 
 ```bash
 mkdir -p ~/.agents/skills
 ln -s "$PWD/create-readme" ~/.agents/skills/create-readme
-ln -s "$PWD/find-skills" ~/.agents/skills/find-skills
 ln -s "$PWD/git-commit" ~/.agents/skills/git-commit
 ln -s "$PWD/grill-me" ~/.agents/skills/grill-me
 ln -s "$PWD/grill-with-docs" ~/.agents/skills/grill-with-docs
@@ -48,6 +58,8 @@ ln -s "$PWD/karpathy-guidelines" ~/.agents/skills/karpathy-guidelines
 ```
 
 如果你的工具使用其他 skill root，请把上面的目标目录替换为对应路径。也可以用 `cp -R` 复制目录，而不是创建符号链接。
+
+要安装未修改的上游 skill，请使用“上游直接安装”里的 `npx skills add` 命令。
 
 ## 使用方式
 
@@ -70,9 +82,9 @@ grill me on this rollout plan
 ├── README-en.md
 ├── create-readme/
 │   └── SKILL.md
-├── find-skills/
+├── git-commit/
 │   └── SKILL.md
-└── <skill-name>/
+└── <local-or-modified-skill>/
     └── SKILL.md
 ```
 
@@ -93,6 +105,8 @@ grill me on this rollout plan
 - `description` 应写清楚触发场景，而不是泛泛描述能力。
 - `SKILL.md` 优先记录 agent 必须遵守的流程、边界和验证方式。
 - 只有在能减少重复或降低出错率时，才添加脚本、模板或资源文件。
+- 如果 skill 与 skills.sh 上游完全一致，只保留下载链接，不保留本地目录。
+- 如果修改了上游 skill，需要在“本仓库维护的 Skills”表格中写清上游链接和修改说明。
 - 修改 skill 后，至少检查 Markdown 链接、frontmatter 和示例命令是否仍然准确。
 
 ## 验证
