@@ -18,7 +18,7 @@
 ## 本仓库维护的 Skills
 
 | Skill | 来源 | 适用场景 / 修改说明 |
-| --- | --- |
+| --- | --- | --- |
 | [`create-readme`](create-readme/SKILL.md) | 本地自定义 | 为项目创建或重构 `README.md` 与 `README-en.md`。 |
 | [`git-commit`](git-commit/SKILL.md) | [skills.sh](https://www.skills.sh/github/awesome-copilot/git-commit) | 基于上游 `github/awesome-copilot`，将提交描述要求改为简体中文，并补充中文提交消息约定。 |
 | [`grill-me`](grill-me/SKILL.md) | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-me) | 基于上游 `mattpocock/skills`，从命令委托改为内联追问流程，并补充“可从代码库回答的问题先查代码”。 |

@@ -18,7 +18,7 @@ A personal collection of Agent Skills. This repository keeps reusable workflow i
 ## Maintained Skills
 
 | Skill | Source | Use it when / local changes |
-| --- | --- |
+| --- | --- | --- |
 | [`create-readme`](create-readme/SKILL.md) | Local custom | Create or rewrite `README.md` and `README-en.md` for a project. |
 | [`git-commit`](git-commit/SKILL.md) | [skills.sh](https://www.skills.sh/github/awesome-copilot/git-commit) | Based on `github/awesome-copilot`, with commit descriptions changed to Simplified Chinese and Chinese commit-message guidance added. |
 | [`grill-me`](grill-me/SKILL.md) | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-me) | Based on `mattpocock/skills`, expanded from command delegation into an inline interview workflow, including codebase lookup when the code can answer a question. |
