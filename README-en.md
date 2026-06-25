@@ -31,10 +31,17 @@ These skills are available from skills.sh, and this repository no longer keeps t
 | `agent-reach` | [skills.sh](https://www.skills.sh/panniantong/agent-reach/agent-reach) | `npx skills add https://github.com/panniantong/agent-reach --skill agent-reach` |
 | `find-skills` | [skills.sh](https://www.skills.sh/vercel-labs/skills/find-skills) | `npx skills add https://github.com/vercel-labs/skills --skill find-skills` |
 | `frontend-design` | [skills.sh](https://www.skills.sh/anthropics/skills/frontend-design) | `npx skills add https://github.com/anthropics/skills --skill frontend-design` |
-| `grill-me` | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-me) | `npx skills add https://github.com/mattpocock/skills --skill grill-me` |
-| `grill-with-docs` | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-with-docs) | `npx skills add https://github.com/mattpocock/skills --skill grill-with-docs` |
+| `grill-me` | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-me) | `npx skills@latest add mattpocock/skills` |
+| `grill-with-docs` | [skills.sh](https://www.skills.sh/mattpocock/skills/grill-with-docs) | `npx skills@latest add mattpocock/skills` |
 | `obsidian-markdown` | [skills.sh](https://www.skills.sh/kepano/obsidian-skills/obsidian-markdown) | `npx skills add https://github.com/kepano/obsidian-skills --skill obsidian-markdown` |
 | `postgresql-optimization` | [skills.sh](https://www.skills.sh/github/awesome-copilot/postgresql-optimization) | `npx skills add https://github.com/github/awesome-copilot --skill postgresql-optimization` |
+| `diagnosing-bugs` | [skills.sh](https://www.skills.sh/mattpocock/skills/diagnosing-bugs) | `npx skills@latest add mattpocock/skills` |
+| `handoff` | [skills.sh](https://www.skills.sh/mattpocock/skills/handoff) | `npx skills@latest add mattpocock/skills` |
+| `humanizer-zh` | [skills.sh](https://www.skills.sh/op7418/humanizer-zh/humanizer-zh) | `npx skills add https://github.com/op7418/humanizer-zh --skill humanizer-zh` |
+| `prototype` | [skills.sh](https://www.skills.sh/mattpocock/skills/prototype) | `npx skills@latest add mattpocock/skills` |
+| `resolving-merge-conflicts` | [skills.sh](https://www.skills.sh/mattpocock/skills/resolving-merge-conflicts) | `npx skills@latest add mattpocock/skills` |
+| `review` | [skills.sh](https://www.skills.sh/mattpocock/skills/review) | `npx skills@latest add mattpocock/skills` |
+| `tdd` | [skills.sh](https://www.skills.sh/mattpocock/skills/tdd) | `npx skills@latest add mattpocock/skills` |
 
 ## Getting Started
 
